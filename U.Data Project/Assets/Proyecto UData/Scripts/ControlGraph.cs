@@ -35,6 +35,17 @@ namespace MoonAntonio
 		public Image prefab;                                    // Prefab de la pieza del graph
 		#endregion
 
+		#region Variables Privadas
+		/// <summary>
+		/// <para>Total de los valores del graph.</para>
+		/// </summary>
+		private float total = 0.0f;								// Total de los valores del graph
+		/// <summary>
+		/// <para>Rotacion en Z</para>
+		/// </summary>
+		private float rotZ = 0.0f;								// Rotacion en Z
+		#endregion
+
 		#region Init
 		/// <summary>
 		/// <para>Init de ControlGraph.</para>
@@ -48,11 +59,20 @@ namespace MoonAntonio
 
 		#region API
 		/// <summary>
-		/// <para>Agrega una nueva pieza al graph.</para>
+		/// <para>Agrega una nueva pieza al graph</para>
 		/// </summary>
-		public void AddPieza()// Agrega una nueva pieza al graph
+		/// <param name="id">Id de la posicion en al lista.</param>
+		/// <param name="valorTotal">Valor de los totales.</param>
+		/// <param name="rotacionZ">Rotacion en Z</param>
+		public void AddPieza(int id, float valorTotal, float rotacionZ)// Agrega una nueva pieza al graph
 		{
+			Image nuevaPieza = Instantiate(prefab) as Image;
 
+			nuevaPieza.transform.SetParent(transform, false);
+			nuevaPieza.color = colores[id];
+			nuevaPieza.fillAmount = valores[id] / valorTotal;
+			nuevaPieza.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, rotacionZ));
+			rotZ -= nuevaPieza.fillAmount * 360f;
 		}
 		#endregion
 
@@ -62,7 +82,17 @@ namespace MoonAntonio
 		/// </summary>
 		private void CrearGraph()// Crea un graph
 		{
+			// Agregar los valores al total
+			for (int n = 0; n < valores.Count; n++)
+			{
+				total += valores[n];
+			}
 
+			// Agregar las piezas
+			for (int i = 0; i < valores.Count; i++)
+			{
+				AddPieza(i, total, rotZ);
+			}
 		}
 		#endregion
 	}
