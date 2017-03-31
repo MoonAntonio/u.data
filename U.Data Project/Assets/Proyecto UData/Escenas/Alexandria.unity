@@ -133,7 +133,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6f383310d3caef40a18ce984e944165, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &1959343468
+--- !u!1001 &1490443697
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
