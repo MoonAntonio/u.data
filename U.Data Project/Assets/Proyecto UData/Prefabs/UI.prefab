@@ -56,6 +56,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afffc2d1817cac4c9fa22ed054dfcda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  valores:
+  - 2.5
+  - 1
+  - 0.5
+  - 0.5
+  - 0.5
+  colores:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0.8823528, a: 1}
+  - {r: 0.0152463075, g: 0, b: 1, a: 1}
+  - {r: 0, g: 0.9251729, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.0746108, a: 1}
+  prefab: {fileID: 114924699923964718, guid: f28706f4c95913148ba43835735da9ba, type: 2}
 --- !u!114 &114593575250362656
 MonoBehaviour:
   m_ObjectHideFlags: 1
